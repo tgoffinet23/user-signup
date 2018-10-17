@@ -48,15 +48,16 @@ def ValidateSignup():
     elif not password == Confirmpass:
         ConfirmpassError = "The passwords don't match"
 
+   
     if len(email) > 0:
         if email.count("@") < 1:
-            emailError = "That's not a valid email"
+            emailError = "Does not have an @ symbol"
         elif email.count(".") < 1:
-            emailError = "That's not a valid email"
+            emailError = "Does not have a . symbol"
         elif email.count(" ") > 0:
-            emailError = "That's not a valid email"
+            emailError = "You need to enter a email"
         elif len(email) > 20 or len(email) < 3:
-            emailError = "That's not a valid email"
+            emailError = "Does not have at least 3 letter and less than 20"
     
     if not usernameError and not passwordError and not ConfirmpassError and not emailError:
         return redirect('/welcome?username= {0}'.format(username))
